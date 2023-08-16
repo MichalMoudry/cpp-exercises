@@ -1,1 +1,1 @@
-# cpp-exercises
+# C++ exercises
