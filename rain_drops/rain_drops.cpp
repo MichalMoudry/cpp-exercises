@@ -29,4 +29,5 @@ int main() {
     std::cout << raindrops::convert(1) << std::endl;
     std::cout << raindrops::convert(3) << std::endl;
     std::cout << raindrops::convert(105) << std::endl;
+    std::cout << raindrops::convert(5) << std::endl;
 }
