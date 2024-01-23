@@ -42,3 +42,5 @@ x86/
 # Other
 *.ilk
 *.pdb
+
+.idea

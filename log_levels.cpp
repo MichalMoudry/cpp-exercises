@@ -8,8 +8,8 @@ namespace log_line {
         return input.substr(spaceIndex + 1, (length - spaceIndex));
     }
 
-    std::string log_level(std::string input) {
-        int spaceIndex = input.find(" ");
+    std::string log_level(const std::string& input) {
+        std::basic_string<char>::size_type spaceIndex = input.find(' ');
         return input.substr(1, spaceIndex - 3);
     }
 
