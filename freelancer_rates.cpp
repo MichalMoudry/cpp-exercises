@@ -15,11 +15,7 @@ double apply_discount(double before_discount, double discount) {
 // monthly_rate calculates the monthly rate, given an hourly rate and a discount
 // The returned monthly rate is rounded up to the nearest integer.
 int monthly_rate(double hourly_rate, double discount) {
-    return (int)(
-        ceil(
-            apply_discount(22 * daily_rate(hourly_rate), discount)
-        )
-    );
+    return (int)ceil(apply_discount(22 * daily_rate(hourly_rate), discount));
 }
 
 // days_in_budget calculates the number of workdays given a budget, hourly rate,
