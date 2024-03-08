@@ -10,7 +10,7 @@ int main() {
         {
             cout << nums[i] << endl;
         }
-        
     }
+    
     return 0;
 }
