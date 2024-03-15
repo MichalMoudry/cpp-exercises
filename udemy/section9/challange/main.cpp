@@ -3,22 +3,81 @@
 
 using namespace std;
 
-// Method for printing current state of the collection.
-void print_numbers(const vector<int>& vec) {
+// Function for printing current state of the collection.
+void print_numbers(const vector<int>& numbers) {
     cout << "[";
-    for (const auto& num : vec) {
+    if (numbers.size() > 0) {
+        cout << " ";
+    }
+
+    for (const auto& num : numbers) {
         cout << num << " ";
     }
     cout << "]";
 }
 
-void handle_number_adding(vector<int>& vec) {
-    int number{};
+void handle_number_adding(vector<int>& numbers) {
+    int number {};
     cout << "Which number do you want to add? ";
     cin >> number;
-    vec.push_back(number);
+    numbers.push_back(number);
     cout << endl;
     cout << "Added " << number;
+}
+
+// Function for printing a mean of current numbers in a vector.
+void print_mean(vector<int>& numbers) {
+    size_t vec_size {numbers.size()};
+    if (vec_size == 0) {
+        cout << "Unable to calculate the mean - no data";
+    }
+    else {
+        int sum {};
+        for (const auto& num : numbers) {
+            sum += num;
+        }
+        cout << "Mean of current numbers is: " << (sum/(float)vec_size);
+    }
+}
+
+// Function for printing the smallest number in a vector.
+void print_smallest_number(vector<int>& numbers) {
+    size_t vec_size {numbers.size()};
+    if (vec_size == 0) {
+        cout << "Unable to determine the smallest number - list is empty";
+    }
+    else {
+        int smallest {numbers[0]};
+        int next_index;
+        for (int i {}; i < vec_size; i++) {
+            next_index = i + 1;
+            if (next_index == vec_size) break;
+            if (numbers.at(next_index) < smallest) {
+                smallest = numbers.at(next_index);
+            }
+        }
+        cout << "Smallest number is: " << smallest;
+    }
+}
+
+// Function for printing the largest number in a vector.
+void print_largest_number(vector<int> &numbers) {
+    size_t vec_size {numbers.size()};
+    if (vec_size == 0) {
+        cout << "Unable to determine the largest number - list is empty";
+    }
+    else {
+        int largest {numbers[0]};
+        int next_index;
+        for (int i {}; i < vec_size; i++) {
+            next_index = i + 1;
+            if (next_index == vec_size) break;
+            if (numbers.at(next_index) > largest) {
+                largest = numbers.at(next_index);
+            }
+        }
+        cout << "Largest number is: " << largest;
+    }
 }
 
 void handle_input(char input, vector<int>& vec) {
@@ -30,6 +89,18 @@ void handle_input(char input, vector<int>& vec) {
         case 'a':
         case 'A':
             handle_number_adding(vec);
+            break;
+        case 'm':
+        case 'M':
+            print_mean(vec);
+            break;
+        case 's':
+        case 'S':
+            print_smallest_number(vec);
+            break;
+        case 'l':
+        case 'L':
+            print_largest_number(vec);
             break;
         default:
             break;
