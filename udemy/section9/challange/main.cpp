@@ -4,7 +4,7 @@
 using namespace std;
 
 // Function for printing current state of the collection.
-void print_numbers(const vector<int>& numbers) {
+void print_numbers(const vector<int> &numbers) {
     cout << "[";
     if (numbers.size() > 0) {
         cout << " ";
@@ -16,7 +16,7 @@ void print_numbers(const vector<int>& numbers) {
     cout << "]";
 }
 
-void handle_number_adding(vector<int>& numbers) {
+void handle_number_adding(vector<int> &numbers) {
     int number {};
     cout << "Which number do you want to add? ";
     cin >> number;
@@ -26,7 +26,7 @@ void handle_number_adding(vector<int>& numbers) {
 }
 
 // Function for printing a mean of current numbers in a vector.
-void print_mean(vector<int>& numbers) {
+void print_mean(vector<int> &numbers) {
     size_t vec_size {numbers.size()};
     if (vec_size == 0) {
         cout << "Unable to calculate the mean - no data";
@@ -41,7 +41,7 @@ void print_mean(vector<int>& numbers) {
 }
 
 // Function for printing the smallest number in a vector.
-void print_smallest_number(vector<int>& numbers) {
+void print_smallest_number(vector<int> &numbers) {
     size_t vec_size {numbers.size()};
     if (vec_size == 0) {
         cout << "Unable to determine the smallest number - list is empty";
