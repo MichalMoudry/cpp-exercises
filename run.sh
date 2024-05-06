@@ -1,5 +1,5 @@
 #!/bin/bash
-path=./udemy/section12/exercise5
+path=./udemy/section12/references
 cpp_version=c++17
 
 g++ $path/main.cpp -std=$cpp_version -o ./output/main
