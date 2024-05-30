@@ -8,8 +8,8 @@ class Movies {
 private:
     std::vector<Movie> movies {};
 public:
-    void add_movie(std::string name, double rating, int watched);
-    void was_watched(std::string movie_name);
+    bool add_movie(std::string name, double rating, int watched);
+    bool was_watched(std::string movie_name);
     void display_movies() const;
 };
 
