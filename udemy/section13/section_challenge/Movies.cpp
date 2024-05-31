@@ -17,18 +17,14 @@ bool Movies::add_movie(std::string name, double rating, int watched) {
 }
 
 bool Movies::was_watched(std::string movie_name) {
-    Movie* movie_to_watch {nullptr};
     for (auto& movie : movies) {
         if (movie.get_name() == movie_name) {
-            movie_to_watch = &movie;
+            movie.was_watched();
+            return true;
         }
     }
-    if (movie_to_watch == nullptr) {
-        std::cout << "Error: " << movie_name << " doesn't exist in the library \n";
-        return false;
-    }
-    movie_to_watch->was_watched();
-    return true;
+    std::cout << "Error: " << movie_name << " doesn't exist in the library \n";
+    return false;
 }
 
 void Movies::display_movies() const {

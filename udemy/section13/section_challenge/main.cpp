@@ -48,8 +48,7 @@ void handle_input(const std::string input, Movies& movies) {
             std::cout << "Quitting application...\n";
             return;
         case 'a':
-        case 'A':
-            {
+        case 'A': {
                 std::cout << "Enter movie's name: ";
                 std::string new_movie {};
                 std::getline(std::cin, new_movie);
@@ -64,8 +63,7 @@ void handle_input(const std::string input, Movies& movies) {
             movies.display_movies();
             break;
         case 'm':
-        case 'M':
-            {
+        case 'M': {
                 std::cout << "Which movie was watched? ";
                 std::string watched_movie {};
                 std::getline(std::cin, watched_movie);
