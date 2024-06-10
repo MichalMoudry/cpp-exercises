@@ -1,5 +1,5 @@
 #!/bin/bash
-path=./udemy/section14/operator_overloading_move
+path=./udemy/section14/challenge
 #path=./udemy/vehicle_purchase
 cpp_version=c++14
 
