@@ -1,3 +1,4 @@
+#include "my_string.h"
 #include <iostream>
 
 /*
@@ -25,5 +26,35 @@ Here is a list of the operators:
 */
 
 int main() {
+    MyString test1 {};
+    test1.display();
+    MyString test2 {"TeSt 2"};
+    test2.display();
+    MyString test3 {"abc"};
+    test3.display();
+    MyString test4 {"Test 4"};
+    test4.display();
+
+    std::cout << "\nUnary minus op:\n";
+    (-test2).display();
+    test2.display();
+
+    std::cout << "\nEquality op:\n";
+    std::cout << (test1 == test2 ? "true" : "false") << std::endl;
+    std::cout << (test2 == test2 ? "true" : "false") << std::endl;
+    std::cout << (test2 == test4 ? "true" : "false") << std::endl;
+
+    std::cout << "\nInquality op:\n";
+    std::cout << (test1 != test2 ? "true" : "false") << std::endl;
+    std::cout << (test2 != test2 ? "true" : "false") << std::endl;
+    std::cout << (test2 != test4 ? "true" : "false") << std::endl;
+
+    std::cout << "\nConcatenantion:\n";
+    (test4 + test3).display();
+
+    std::cout << "\nConcatenantion 2:\n";
+    test1 += "abc";
+    test1 += "abc";
+    test1.display();
     return 0;
 }
