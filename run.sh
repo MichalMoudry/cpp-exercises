@@ -1,5 +1,5 @@
 #!/bin/bash
-path=./udemy/section14/challenge
+path=./udemy/section15/inheritance
 #path=./udemy/vehicle_purchase
 cpp_version=c++14
 

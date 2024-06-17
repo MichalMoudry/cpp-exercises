@@ -56,5 +56,14 @@ int main() {
     test1 += "abc";
     test1 += "abc";
     test1.display();
+
+    std::cout << "\nMultiply:\n";
+    MyString multiplied {test3 * 3};
+    multiplied.display();
+    multiplied *= 2;
+    multiplied.display();
+
+    std::cout << "\nLexical comparision:\n";
+    std::cout << (test3 < test4 ? "true" : "false") << std::endl;
     return 0;
 }

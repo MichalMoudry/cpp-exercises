@@ -21,8 +21,11 @@ public:
     MyString operator-() const;
     bool operator==(const MyString& rhs) const;
     bool operator!=(const MyString& rhs) const;
+    bool operator<(const MyString& rhs) const;
     MyString operator+(const MyString& rhs) const;
     MyString& operator+=(const MyString& rhs);
+    MyString operator*(int num) const;
+    MyString& operator*=(int num);
 
     void display() const {
         auto str_len {get_length()};
