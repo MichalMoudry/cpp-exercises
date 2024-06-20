@@ -1,5 +1,5 @@
 #!/bin/bash
-path=./udemy/section15/copyctor
+path=./udemy/section15/challenge
 #path=./udemy/vehicle_purchase
 cpp_version=c++14
 

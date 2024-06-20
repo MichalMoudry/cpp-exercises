@@ -62,6 +62,25 @@ public:
     }
 };
 
+class Test {
+private:
+    int val;
+public:
+    Test() : val{0} {
+    }
+    Test(int x) : val{x} {
+    }
+    Test(const Test& src) : val{src.val} {
+    }
+
+    int get_val() {
+        return val;
+    }
+    void add_val(int x) {
+        val += x;
+    }
+};
+
 int main() {
     //Base b {100}; // overloaded constructor
     //Base b1 {b}; // copy constructor
@@ -70,5 +89,12 @@ int main() {
     Derived d {100};
     Derived d1 {d};
     d = d1;
+
+    Test test1 {100};
+    Test test2;
+    test2 = test1;
+    std::cout << test1.get_val() << std::endl;
+    test2.add_val(10);
+    std::cout << test2.get_val() << std::endl;
     return 0;
 }
