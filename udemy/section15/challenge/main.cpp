@@ -1,4 +1,5 @@
 #include <iostream>
+#include "TrustAccount.h"
 #include "CheckingAccount.h"
 #include "AccountUtil.h"
 
@@ -47,5 +48,15 @@ int main() {
     std::cout << check_acc_1 << std::endl;
     check_acc_1.withdraw(47.01);
     std::cout << check_acc_1 << std::endl;
+
+    TrustAccount trust_acc_1 {"Test trust account", 2'000};
+    std::cout << trust_acc_1 << std::endl;
+    trust_acc_1.deposit(5000);
+    std::cout << trust_acc_1 << std::endl;
+    trust_acc_1.withdraw(100);
+    trust_acc_1.withdraw(100);
+    trust_acc_1.withdraw(100);
+    trust_acc_1.withdraw(100);
+    std::cout << trust_acc_1 << std::endl;
     return 0;
 }
