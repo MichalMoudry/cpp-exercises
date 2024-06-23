@@ -10,7 +10,8 @@ bool TrustAccount::deposit(double amount) {
     if (amount >= 5'000) {
         balance += amount + 50;
         return true;
-    } else if (amount > 0) {
+    }
+    else if (amount > 0) {
         balance += amount;
         return true;
     }

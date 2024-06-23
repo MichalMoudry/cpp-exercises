@@ -55,8 +55,9 @@ int main() {
     std::cout << trust_acc_1 << std::endl;
     trust_acc_1.withdraw(100);
     trust_acc_1.withdraw(100);
-    trust_acc_1.withdraw(100);
-    trust_acc_1.withdraw(100);
+    trust_acc_1.withdraw(5000);
+    //trust_acc_1.withdraw(100);
+    //trust_acc_1.withdraw(100);
     std::cout << trust_acc_1 << std::endl;
     return 0;
 }

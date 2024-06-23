@@ -11,7 +11,8 @@ void deposit(std::vector<Account>& accounts, double amount) {
     for (auto& acc : accounts) {
         if (acc.deposit(amount)) {
             std::cout << "Deposited " << amount << " to " << acc << std::endl;
-        } else {
+        }
+        else {
             std::cout
                 << "Failed deposit of "
                 << amount << " to "
@@ -24,7 +25,8 @@ void withdraw(std::vector<Account>& accounts, double amount) {
     for (auto& acc : accounts) {
         if (acc.withdraw(amount)) {
             std::cout << "Withdrew " << amount << " from " << acc << std::endl;
-        } else {
+        }
+        else {
             std::cout << "Failed to withdrew " << amount << " from " << acc << std::endl;
         }
     }
@@ -41,7 +43,8 @@ void deposit(std::vector<SavingsAccount>& accounts, double amount) {
     for (auto& acc : accounts) {
         if (acc.deposit(amount)) {
             std::cout << "Deposited " << amount << " to " << acc << std::endl;
-        } else {
+        }
+        else {
             std::cout
                 << "Failed deposit of "
                 << amount << " to "
@@ -54,7 +57,8 @@ void withdraw(std::vector<SavingsAccount>& accounts, double amount) {
     for (auto& acc : accounts) {
         if (acc.withdraw(amount)) {
             std::cout << "Withdrew " << amount << " from " << acc << std::endl;
-        } else {
+        }
+        else {
             std::cout << "Failed to withdrew " << amount << " from " << acc << std::endl;
         }
     }
