@@ -1,5 +1,5 @@
 #!/bin/bash
-path=./udemy/section16/interfaces
+path=./udemy/section17/unique_ptr
 #path=./udemy/vehicle_purchase
 cpp_version=c++14
 
