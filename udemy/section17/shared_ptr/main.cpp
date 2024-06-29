@@ -24,6 +24,8 @@ public:
 
 int main() {
     auto p1 = std::make_shared<Test>(1'000);
-    std::cout << p1.use_count() << std::endl;
+    std::cout << "Ref count: " << p1.use_count() << std::endl;
+    std::shared_ptr<Test> pr2 {p1};
+    std::cout << "Ref count: " << p1.use_count() << std::endl;
     return 0;
 }
