@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 #include <memory>
 
 class Test final {
@@ -24,17 +23,7 @@ public:
 };
 
 int main() {
-    /*Test* t1 {new Test(1'000)};
-    delete t1;*/
-
-    std::unique_ptr<Test> t1 {new Test(100)};
-    auto t2 = std::make_unique<Test>(1'000);
-
-    std::unique_ptr<Test> t3;
-    t3 = std::move(t1);
-    if (!t1) {
-        std::cout << "t1 is nullptr\n";
-    }
-
+    auto p1 = std::make_shared<Test>(1'000);
+    std::cout << p1.use_count() << std::endl;
     return 0;
 }
