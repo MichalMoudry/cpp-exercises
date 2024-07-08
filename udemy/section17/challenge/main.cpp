@@ -18,7 +18,7 @@ public:
     }
 };
 
-std::unique_ptr<std::vector<std::shared_ptr<Test>>> make() {
+auto make() {
     return std::make_unique<std::vector<std::shared_ptr<Test>>>();
 }
 
