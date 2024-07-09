@@ -1,5 +1,5 @@
 #!/bin/bash
-path=./udemy/section17/challenge
+path=./udemy/section18/exceptions
 #path=./udemy/vehicle_purchase
 cpp_version=c++14
 
