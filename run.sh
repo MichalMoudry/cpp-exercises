@@ -1,5 +1,5 @@
 #!/bin/bash
-path=./udemy/section18/exceptions
+path=./udemy/section18/multiple_exceptions
 #path=./udemy/vehicle_purchase
 cpp_version=c++14
 
