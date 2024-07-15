@@ -2,8 +2,7 @@
 #include <fstream>
 
 int main(int argc, char const *argv[]) {
-    std::ifstream in_file;
-    in_file.open("./udemy/section19/file_read/poem.txt");
+    std::ifstream in_file {"./udemy/section19/file_read/poem.txt"};
 
     if (!in_file.is_open()) {
         std::cerr << "Problem opening file" << std::endl;
