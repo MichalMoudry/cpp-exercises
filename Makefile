@@ -1,5 +1,5 @@
 cpp_version := c++14
-path := "./udemy/section19/challenge1"
+path := "./udemy/section19/challenge2"
 #path=./udemy/vehicle_purchase
 
 run:
