@@ -16,10 +16,12 @@ int main() {
     std::string line;
     uint line_number {1};
     while (std::getline(in_file, line)) {
-        if (line.length() != 0) {
-            out_file << line_number << ". " << line << line.length() << std::endl;
+        if (line.length() != 1) {
+            out_file << line_number << ". " << line << std::endl;
+            line_number += 1;
+        } else {
+            out_file << std::endl;
         }
-        line_number += 1;
     }
     std::cout << "File copied..." << std::endl;
 
