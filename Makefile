@@ -1,5 +1,5 @@
 cpp_version := c++14
-path := "./udemy/section19/string_streams"
+path := "./udemy/section20/class_templates"
 #path=./udemy/vehicle_purchase
 
 run:
