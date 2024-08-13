@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include <vector>
 #include <list>
 #include <algorithm>
@@ -86,16 +87,56 @@ void count_if_test() {
 }
 
 void replace_test() {
+    std::cout << "=====================" << std::endl;
+    std::vector<int> vec {1, 2, 3, 4, 5, 1, 2, 1};
+    for (auto i : vec) {
+        std::cout << i << " ";
+    }
+    std::cout << std::endl;
 
+    std::replace(vec.begin(), vec.end(), 1, 100);
+    for (auto i : vec) {
+        std::cout << i << " ";
+    }
+    std::cout << std::endl;
 }
 
 void all_of_test() {
+    std::cout << "=====================" << std::endl;
+    std::vector<int> vec1 {1, 3, 5, 7, 9, 1, 3, 13, 19, 5};
 
+    auto all_of {
+        std::all_of(vec1.begin(), vec1.end(), [](int x) { return x > 10; })
+    };
+    if (all_of) {
+        std::cout << "All the elements are > 10" << std::endl;
+    } else {
+        std::cout << "Not all elements are > 10" << std::endl;
+    }
+
+    all_of = std::all_of(vec1.begin(), vec1.end(), [](int x) { return x > 20; });
+    if (all_of) {
+        std::cout << "All the elements are > 20" << std::endl;
+    } else {
+        std::cout << "Not all elements are > 20" << std::endl;
+    }
+}
+
+void string_transform_test() {
+    std::cout << "=====================" << std::endl;
+
+    std::string str {"This is a test"};
+    std::cout << "Before transform: " << str << std::endl;
+    std::transform(str.begin(), str.end(), str.begin(), ::toupper);
+    std::cout << "After transform: " << str << std::endl;
 }
 
 int main() {
     find_test();
     count_test();
     count_if_test();
+    replace_test();
+    all_of_test();
+    string_transform_test();
     return 0;
 }
