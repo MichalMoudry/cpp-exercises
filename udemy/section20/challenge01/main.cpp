@@ -9,11 +9,25 @@ bool is_palindrome(const std::string& str) {
     if (str == "") {
         return false;
     }
+    std::deque<char> reverse;
+    for (auto c : str) {
+        if (std::isalpha(c)) {
+            reverse.push_back(std::toupper(c));
+        }
+    }
 
-    auto len {str.length()};
-    std::deque<char> reverse (len);
+    auto len {reverse.size()};
+    char c1;
+    char c2;
     while (len > 1) {
-        len -= 1;
+        c1 = reverse.front();
+        c2 = reverse.back();
+        if (c1 != c2) {
+            return false;
+        }
+        reverse.pop_front();
+        reverse.pop_back();
+        len -= 2;
     }
     /*auto len {str.length()};
     std::vector<char> current;
