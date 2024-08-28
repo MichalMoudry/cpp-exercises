@@ -65,11 +65,11 @@ std::ostream& operator<<(std::ostream& os, const Song& song) {
 
 void display_playlist(
     std::list<Song>& playlist,
-    std::list<Song>::iterator& current) {
+    Song& current) {
     for (const auto& song : playlist) {
         std::cout << song << std::endl;
     }
-    std::cout << "Current song:\n" << *current << std::endl;
+    std::cout << "Current song:\n" << current << std::endl;
 }
 
 void display_menu() {
@@ -123,7 +123,8 @@ void handle_user_input(
     if (input == "F" || input == "f") {
         current_song = playlist.begin();
         std::cout << "\nSwitched to " << *current_song << std::endl;
-    } else if (input == "N" || input == "n") {
+    }
+    else if (input == "N" || input == "n") {
         if (current_song == --playlist.end()) {
             current_song = playlist.begin();
         }
@@ -131,17 +132,21 @@ void handle_user_input(
             current_song++;
         }
         std::cout << "\nSwitched to " << *current_song << std::endl;
-    } else if (input == "P" || input == "p") {
+    }
+    else if (input == "P" || input == "p") {
         if (current_song == playlist.begin()) {
             current_song--;
         }
         current_song--;
         std::cout << "\nSwitched to " << *current_song << std::endl;
-    } else if (input == "A" || input == "a") {
+    }
+    else if (input == "A" || input == "a") {
         add_song(playlist, current_song);
-    } else if (input == "L" || input == "l") {
-        display_playlist(playlist, current_song);
-    } else if (input != "Q" && input != "q") {
+    }
+    else if (input == "L" || input == "l") {
+        display_playlist(playlist, *current_song);
+    }
+    else if (input != "Q" && input != "q") {
         std::cout << "Incorrect input..." << std::endl;
     }
 }
@@ -156,7 +161,7 @@ int main() {
 
     auto current_song {playlist.begin()};
 
-    display_playlist(playlist, current_song);
+    display_playlist(playlist, *current_song);
     std::cout << std::endl;
     do {
         display_menu();
