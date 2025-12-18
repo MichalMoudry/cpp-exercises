@@ -6,8 +6,10 @@
 #include <iomanip>
 #include <fstream>
 #include <map>
-//#include <set>
+#include <set>
 #include <string>
+#include <utility>
+//#include <functional>
 
 /*
 We will be reading words from a text file provided for you.
@@ -63,6 +65,17 @@ You should call the clean_string function for every word
 you read from the file.
 */
 
+class StringCaseInsensitiveComparer final {
+    public:
+    bool operator()(const std::string& a, const std::string& b) const {
+        // TODO: fix string comparison
+        return a.compare(b) == 0;
+    }
+};
+
+// Resets a file stream and sets a new position (0 by default).
+void reset_stream(std::ifstream&, int position = 0);
+
 int main() {
     std::ifstream in_file {"./udemy/section20/challenge03/words.txt"};
     if (!in_file.is_open()) {
@@ -72,7 +85,7 @@ int main() {
     std::cout << "The file was successfully read..." << std::endl;
 
     std::string line;
-    std::unique_ptr<std::map<std::string, int>> word_count {
+    auto word_count {
         std::make_unique<std::map<std::string, int>>()
     };
     while (std::getline(in_file, line)) {
@@ -82,8 +95,9 @@ int main() {
             if (!std::isalpha(word.back())) {
                 word.resize(word.length() - 1);
             }
+
             if (word_count->find(word) == word_count->end()) {
-                word_count->insert(std::make_pair(word, 1));
+                word_count->emplace(std::make_pair(word, 1));
             }
             else {
                 (*word_count)[word] += 1;
@@ -106,5 +120,47 @@ int main() {
             << count.second << std::endl;
     }
 
+    // === 2nd part
+    std::cout << "\n\n===> Part 2" << std::endl;
+    reset_stream(in_file);
+
+    auto unique_words {
+        std::make_unique<std::map<std::string, std::set<int>>>()
+    };
+    int line_number = 0;
+    while (std::getline(in_file, line)) {
+        line_number += 1;
+        std::istringstream line_stream {line};
+        std::string word;
+        while (line_stream >> word) {
+            if (!std::isalpha(word.back())) {
+                word.resize(word.length() - 1);
+            }
+
+            if (unique_words->find(word) == unique_words->end()) {
+                unique_words->emplace(
+                    std::make_pair(word, std::set<int>{line_number})
+                );
+            }
+            else {
+                (*unique_words)[word].emplace(line_number);
+            }
+        }
+    }
+
+    for (const auto& item : *unique_words) {
+        std::cout << std::setw(13) << std::left << item.first << "[ ";
+        for (const auto& line : item.second) {
+            std::cout << line << " ";
+        }
+        std::cout << "]" << std::endl;
+    }
+
+    in_file.close();
     return EXIT_SUCCESS;
+}
+
+void reset_stream(std::ifstream& stream, int position) {
+    stream.clear();
+    stream.seekg(position);
 }
