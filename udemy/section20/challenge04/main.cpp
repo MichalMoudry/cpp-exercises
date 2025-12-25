@@ -61,9 +61,11 @@ bool is_palindrome(const std::string& str) {
         queue.push(lower);
     }
 
+    char actual;
+    char reverse;
     while (!queue.empty()) {
-        char actual = queue.front();
-        char reverse = chars.top();
+        actual = queue.front();
+        reverse = chars.top();
         if (actual != reverse) {
             return false;
         }
