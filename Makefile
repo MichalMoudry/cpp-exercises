@@ -1,5 +1,5 @@
 cpp_version := c++14
-path := "./udemy/section21/FunctionObjects"
+path := "./udemy/section21/StatelessLambdas"
 #path=./udemy/vehicle_purchase
 
 run:
