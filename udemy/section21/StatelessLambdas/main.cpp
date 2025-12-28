@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <iostream>
 #include <string>
 #include <vector>
@@ -83,8 +84,56 @@ void test3() {
     std::cout << stooge << std::endl;
 }
 
+void filter_vector(const std::vector<int>& vec, std::function<bool(int)> func) {
+    std::cout << "[ ";
+    for (int i : vec) {
+        if (func(i)) {
+            std::cout << i << " ";
+        }
+    }
+    std::cout << "]" << std::endl;
+}
+
 void test4() {
     std::cout << "\nTest 4 ====================" << std::endl;
+    std::vector<int> nums {10, 20, 30, 40, 50, 60, 70, 80, 80, 100};
+    filter_vector(nums, [](int x) { return x > 50; });
+    filter_vector(nums, [](int x) { return x <= 30; });
+    filter_vector(nums, [](int x) { return x >= 30 && x <= 60; });
+}
+
+void test5() {
+    std::cout << "\nTest 4 ====================" << std::endl;
+    std::vector<Person> stooges {
+        {"Larry", 20},
+        {"Moe", 30},
+        {"Curly", 40}
+    };
+
+    auto start = stooges.begin();
+    auto end = stooges.end();
+    std::sort(
+        start,
+        end,
+        [](const Person& p1, const Person& p2) {
+            return p1.get_name() < p2.get_name();
+        }
+    );
+    std::for_each(start, end, [](const Person& person) {
+        std::cout << person << std::endl;
+    });
+    std::cout << std::endl;
+
+    std::sort(
+        start,
+        end,
+        [](const Person& p1, const Person& p2) {
+            return p1.get_age() < p2.get_age();
+        }
+    );
+    std::for_each(start, end, [](const Person& person) {
+        std::cout << person << std::endl;
+    });
 }
 
 int main() {
@@ -92,6 +141,7 @@ int main() {
     test2();
     test3();
     test4();
+    test5();
 
     return 0;
 }
