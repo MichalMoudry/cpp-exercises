@@ -1,5 +1,5 @@
 cpp_version := c++14
-path := "./udemy/section21/StatefulLambdas"
+path := "./udemy/section23/ScopedEnums"
 #path=./udemy/vehicle_purchase
 
 run:

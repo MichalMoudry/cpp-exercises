@@ -1,6 +1,4 @@
 #include <iostream>
-#include <vector>
-#include <algorithm>
 
 int global_x = 100;
 
@@ -121,10 +119,6 @@ std::ostream& operator<<(std::ostream& os, const Person& person) {
     return os;
 }
 
-void test7() {
-    std::cout << "\nTest 7 ====================" << std::endl;
-}
-
 int main() {
     test1();
     test2();
@@ -132,7 +126,6 @@ int main() {
     test4();
     test5();
     test6();
-    test7();
 
     return 0;
 }
